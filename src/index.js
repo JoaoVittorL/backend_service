@@ -1,5 +1,5 @@
 import express from "express";
-import mongoose from "mongoose";
+import connectDataBase from "./database/db.js";
 
 import User from "./models/User.js";
 
@@ -21,15 +21,12 @@ app.post("/users", async (request, response) => {
   return response.status(201).json(newUser);
 });
 
-mongoose
-  .connect(
-    "Link"
-  )
+connectDataBase()
   .then(() => {
-    console.log("Banco de dados conectado");
+    app.listen(3000, () => {
+      console.log("Sevidor rondando e banco de dados conectado!");
+    });
   })
-  .catch(() => {
-    console.log("Deu ruim meu brodi");
+  .catch((error) => {
+    console.log(error);
   });
-
-app.listen(3000);
