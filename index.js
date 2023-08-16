@@ -23,7 +23,7 @@ app.post("/users", async (request, response) => {
 
 mongoose
   .connect(
-    "mongodb+srv://vittorsantos234:T65J04FDmby4iuA6@cluster0.sumddyg.mongodb.net/?retryWrites=true&w=majority"
+    "Link"
   )
   .then(() => {
     console.log("Banco de dados conectado");
